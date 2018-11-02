@@ -440,7 +440,7 @@ static int acl__check_single(struct mosquitto__auth_plugin_config *auth_plugin, 
 		* Do this check for every message regardless, we have to protect the
 		* plugins against possible pattern based attacks.
 		*/
-		if(username && strpbrk(username, "+#")){
+		if(username && strpbrk(username, "#")){
 			log__printf(NULL, MOSQ_LOG_NOTICE, "ACL denying access to client with dangerous username \"%s\"", username);
 			return MOSQ_ERR_ACL_DENIED;
 		}
